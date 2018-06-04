@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/addstatus",
+    "pages/select/select",
+    "pages/settings/settings",
+    "pages/settings/about",
+    "pages/settings/bindLover",
+    "pages/settings/loverInfo",
+    "pages/bind",
+    "pages/settings/userInfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f99",
+    "navigationBarTitleText": "爱情存储盒",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "backgroundColor": "#f99",
+    "selectedbackgroundColor": "#fcc",
+    "selectedColor": "#fcc",
+    "borderStyle": "#fcc",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "盒子",
+        "iconPath": "image/tabBarIcon/hezi.png",
+        "selectedIconPath": "image/tabBarIcon/hezi-copy.png"
+      },
+      {
+        "pagePath": "pages/select/select",
+        "text": "功能",
+        "iconPath": "image/tabBarIcon/gongneng.png",
+        "selectedIconPath": "image/tabBarIcon/gongneng-copy.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置",
+        "iconPath": "image/tabBarIcon/shezhi.png",
+        "selectedIconPath": "image/tabBarIcon/shezhi-copy.png"
+      }
+    ]
+  }
+}

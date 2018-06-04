@@ -1,0 +1,5 @@
+<!--pages/index/addstatus.wxml-->
+<form bindsubmit="formSubmit">
+  <textarea placeholder='记录此时此刻的想法...' maxlength='200' bindinput="statusContent" auto-focus='true' ></textarea>
+  <button  form-type="submit">保存</button>
+</form>

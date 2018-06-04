@@ -1,0 +1,9 @@
+/* pages/index/addstatus.wxss */
+page {
+  padding: 2vw;
+  box-sizing: border-box;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}

@@ -1,0 +1,21 @@
+<!--pages/settings/userInfo.wxml-->
+<view>
+  <view>个人信息</view>
+  <view>
+    <view class='avatar'>
+      <image src='{{userInfo.avatarUrl}}'></image>
+    </view>
+    <view>
+      <text>帐号：{{my_userInfo.username}}</text>
+    </view>
+    <view>
+      <text>昵称：{{my_userInfo.nickname}}</text>
+    </view>
+    <view>
+      <text>注册时间：{{my_userInfo.regTime}}</text>  
+    </view>
+    <view>
+      <text>情侣ID：{{my_userInfo.loveId}}</text>
+    </view>
+  </view>
+</view>
