@@ -35,47 +35,53 @@ Page({
   //   })
   // },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
     this.setData({ warn: '' });
     if(this.data.operation === 'signUp') {
       // 注册
       const { username, password, passwordCheck, nickname } = e.detail.value;
       if (!regExp.username.test(username)) {
-        this.setData({
-          warn: "用户名不合法！"
+        wx.showModal({
+          title: '错误',
+          content: '用户名不合法！',
+          showCancel: false
         })
         return;
       } else if (!regExp.password.test(password)) {
-        this.setData({
-          warn: "密码不合法！"
+        wx.showModal({
+          title: '错误',
+          content: '密码不合法！',
+          showCancel: false
         })
         return;
       } else if (password !== passwordCheck) {
-        this.setData({
-          warn: "两次密码输入不一致！"
+        wx.showModal({
+          title: '错误',
+          content: '两次密码输入不一致！',
+          showCancel: false
         })
         return;
       }
-      this.sendSignUpRequest(this, username, password, nickname, this.sendBindRequset);
+      this.sendSignUpRequest(this, username, password, nickname, this.sendBindRequest);
     } else {
       // 绑定
       const { username, password } = e.detail.value;
       if (!regExp.username.test(username)) {
-        this.setData({
-          warn: "用户名不合法！"
+        wx.showModal({
+          title: '错误',
+          content: '用户名不合法！',
+          showCancel: false
         })
         return;
       } else if (!regExp.password.test(password)) {
-        this.setData({
-          warn: "密码不合法！"
+        wx.showModal({
+          title: '错误',
+          content: '密码不合法！',
+          showCancel: false
         })
         return;
       }
       this.sendBindRequest(this, username, password, app.globalData.openId);
     } 
-  },
-  formReset: function () {
-    console.log('form发生了reset事件')
   },
   sendSignUpRequest: function (that, username, password, nickname, cb) {
     wx.request({
@@ -88,21 +94,22 @@ Page({
       method: 'POST',
       success: (res) => {
         if (res.data.data.code === 1) {
-          that.setData({
-            warn: res.data.msg
+          wx.showModal({
+            title: '注册失败',
+            content: res.data.msg,
           })
           return;
         }
         app.globalData.my_userInfo = res.data.data.userInfo;
-        that.setData({
-          warn: "注册成功, 请选择绑定后继续操作"
-        })
-        cb && cb(that, username, password, app.globalData.openId)
-      },
-      fail: (res) => {
-        that.setData({
-          warn: res.toString()
-        })
+        wx.showModal({
+          title: '注册成功',
+          content: '点击确定将自动绑定该帐号',
+          success: (res) => {
+            if(res.confirm) {
+              cb && cb(that, username, password, app.globalData.openId)
+            }
+          }
+        })        
       }
     })
   },
@@ -117,20 +124,24 @@ Page({
       method: 'POST',
       success: (res) => {
         if (res.data.data.code === 1) {
-          that.setData({
-            warn: res.data.msg
+          wx.showModal({
+            title: '绑定失败',
+            content: res.data.msg,
+            showCancel: false
           })
           return;
         }
         app.globalData.hasBinded = true;
         app.globalData.my_userInfo = res.data.data.userInfo;
-        that.setData({
-          warn: "绑定成功，请返回"
-        })
-      },
-      fail: (res) => {
-        that.setData({
-          warn: res.toString()
+        wx.showModal({
+          title: '绑定结果',
+          content: '绑定成功',
+          showCancel: false,
+          success: () => {
+            wx.reLaunch({
+              url: 'index/index',
+            })
+          }
         })
       }
     })

@@ -6,6 +6,7 @@ Page({
     userInfo: {},
     my_userInfo: {},
     statusList: [],
+    hasStatus: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -63,7 +64,13 @@ Page({
     wx.request({
       url: `http://${host}/api/status?userId=${userId}`,
       success: res => {
-        e.setData({ statusList: res.data.data.status });
+        if(res.data.msg === '没有记录') {
+          return
+        }
+        e.setData({ 
+          hasStatus: true,
+          statusList: res.data.data.status 
+        });
       }
     })
   },
@@ -84,10 +91,15 @@ Page({
       method: 'POST',
       success: (res) => {
         if(res.data.data.code === 0) {
+          let hasStatus = true;
+          if(this.data.statusList.length == 1) {
+            hasStatus = false;
+          }
           this.setData({
             statusList: this.data.statusList.filter((item) => {
               return item.statusId != e.currentTarget.id;
-            })
+            }),
+            hasStatus
           })
         }
       }

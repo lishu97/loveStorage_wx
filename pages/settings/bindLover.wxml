@@ -1,2 +1,8 @@
 <!--pages/settings/binding.wxml-->
-<text>pages/settings/binding.wxml</text>
+<view>
+  <text>请输入对方的“情侣ID”</text>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <input type='text' placeholder='可在“个人信息”中查看自己的“情侣ID”' maxlength='40' confirm-type='next' name='loveId2' />
+  <button form-type='submit'>绑定</button>
+</form>

@@ -69,7 +69,8 @@ Page({
   init: (e) => {
     e.setData({
       my_userInfo: app.globalData.my_userInfo,
-      hasBinded: app.globalData.hasBinded
+      hasBinded: app.globalData.hasBinded,
+      loverInfo: app.globalData.loverInfo
     })
   },
   getLoverInfo: (e) => {

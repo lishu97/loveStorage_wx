@@ -11,6 +11,21 @@ Page({
       my_userInfo: app.globalData.my_userInfo
     })
   },
+  onShow: function () {
+    if (this.data.my_userInfo) {
+      return;
+    }
+    wx.showModal({
+      title: '请先注册/绑定帐号',
+      content: '否则将无法正常使用系统功能',
+      showCancel: false,
+      success: () => {
+        wx.redirectTo({
+          url: '../bind',
+        });
+      }
+    })
+  },
   //获取input输入的值
   statusContent: function (e) {   
     this.setData({

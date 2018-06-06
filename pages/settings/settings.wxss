@@ -6,13 +6,11 @@
   justify-content: space-around;
   align-items: center;
 }
-.yourself,
-.lover{
+.userInfo{
   height: 250rpx;
   width: 200rpx;
 }
-.yourself image,
-.lover image {
+.userInfo image {
   height: 200rpx;
   width: 200rpx;
   border-radius: 50%;
@@ -20,8 +18,7 @@
   background-repeat: no-repeat; 
   background-position: center center;
 }
-.yourself text,
-.lover text {
+.userInfo text {
   height: 50rpx;
   width: 200rpx;
   font-size:50rpx;

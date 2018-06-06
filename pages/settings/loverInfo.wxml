@@ -1,6 +1,6 @@
 <!--pages/settings/loverInfo.wxml-->
 <view>
-  <view>个人信息</view>
+  <view>情侣信息</view>
   <view>
     <view class='avatar'>
       <image src='{{"http://"+host+loverInfo.avatar}}'></image>
@@ -13,3 +13,4 @@
     </view>
   </view>
 </view>
+<button type='warn' bindtap='clickBut'>解除绑定</button>

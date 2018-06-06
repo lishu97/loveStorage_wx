@@ -1,2 +1,13 @@
 <!--page/select/select.wxml-->
-<text>page/select/select.wxml</text>
+<navigator url="../bind" hover-class="navigator-hover">
+  <view>
+       <text class='iconfont icon-jihua'></text>  
+    <text>计划书</text>
+  </view>
+</navigator>
+<navigator url="../bind" hover-class="navigator-hover">
+  <view>
+       <text class='iconfont icon-rili'></text>  
+    <text>纪念日</text>
+  </view>
+</navigator>

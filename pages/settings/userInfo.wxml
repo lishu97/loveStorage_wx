@@ -3,7 +3,7 @@
   <view>个人信息</view>
   <view>
     <view class='avatar'>
-      <image src='{{userInfo.avatarUrl}}'></image>
+      <image src='{{"http://"+host+my_userInfo.avatar}}'></image>
     </view>
     <view>
       <text>帐号：{{my_userInfo.username}}</text>
