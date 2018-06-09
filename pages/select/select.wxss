@@ -1,1 +1,17 @@
 /* page/select/select.wxss */
+page {
+  padding: 2vw;
+  box-sizing: border-box;
+}
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+text {
+  font-size: 5vw;
+}
+.iconfont {
+  font-size: 10vw;
+  margin-right: 3vw;
+}

@@ -1,1 +1,18 @@
 /* pages/bind.wxss */
+page{
+  padding: 2vw;
+  box-sizing: border-box;
+}
+.tip {
+  font-size: 6vw;
+  margin-bottom: 5vw;
+}
+.item {
+  display: flex;
+  margin: 3vw 0;
+}
+.item input{
+  border-bottom: 1px solid #ccc;
+  flex-grow: 1;
+  padding-left: 3vw;
+}

@@ -1,21 +1,21 @@
 <!--page/index/index.wxml-->
-<view wx:if="{{!hasStatus}}">没有记录</view>
+<view wx:if="{{!hasStatus}}" class='empty'>No data</view>
 <block wx:for="{{statusList}}">
   <view class="{{'itemContainer ' + item.statusId}}" id="{{index}}">
     <view class='itemHeader'>
       <view class='avatar'>
-        <image src='{{userInfo.avatarUrl}}'></image>
+        <image src='{{userInfo.avatarUrl ? userInfo.avatarUrl : "http://"+host+my_userInfo.avatar}}'></image>
       </view>
       <view class='userInfo'>
         <view class='nickname'>{{my_userInfo.nickname}}</view>
         <view class='statusTime'>{{item.statusTime}}
-          <view bindtap='deleteStatus' id="{{item.statusId}}">
+          <view bindtap='deleteConfirm' id="{{item.statusId}}">
             <text class='iconfont icon-shanchu'></text>
           </view>
         </view>
       </view>
     </view>
-    <view class='statusContent'>{{item.statusContent}}</view>
+    <view class='content'>{{item.statusContent}}</view>
   </view>
 </block>
 <view class='addStatus' bindtap="addStatus"><text class='iconfont icon-tianjia'></text></view>

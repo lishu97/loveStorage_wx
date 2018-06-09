@@ -1,3 +1,4 @@
+import { host } from '../../common/const.js'
 const app = getApp();
 
 Page({
@@ -7,7 +8,8 @@ Page({
     hasUserInfo: false,
     hasBinded: false,
     loverInfo: null,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    host
   },
   /**
    * 生命周期函数--监听页面加载
@@ -74,7 +76,7 @@ Page({
     })
   },
   getLoverInfo: (e) => {
-    const url = 'http://127.0.0.1:3000/api/lover_info?userId=' + e.data.my_userInfo.userId;
+    const url = 'http://' + host + '/api/lover_info?userId=' + e.data.my_userInfo.userId;
     wx.request({
       url: url,
       success: res => {

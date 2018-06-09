@@ -1,5 +1,5 @@
 <!--pages/select/anniversary/anniversary.wxml-->
-<view wx:if="{{!hasAnniversary}}">没有记录</view>
+<view wx:if="{{!hasAnniversary}}"  class='empty'>No data</view>
 <block wx:for="{{anniversaryList}}">
   <view class="{{'itemContainer ' + item.anniversaryId}}" id="{{index}}">
     <view class='itemHeader'>
@@ -10,14 +10,14 @@
         <!-- <view class='nickname'>{{my_userInfo.nickname}}</view> -->
         <view class='time'>
           
-          <view bindtap='deleteAnniversary' id="{{item.anniversaryId}}">
+          <view bindtap='deleteConfirm' id="{{item.anniversaryId}}">
             {{item.anniversaryTime}}
             <text class='iconfont icon-shanchu'></text>
           </view>
         </view>
       </view>
     </view>
-    <view class='anniversaryContent'>{{item.anniversaryContent}}</view>
+    <view class='content'>{{item.anniversaryContent}}</view>
   </view>
 </block>
 <view class='add' bindtap="addAnniversary"><text class='iconfont icon-tianjia'></text></view>

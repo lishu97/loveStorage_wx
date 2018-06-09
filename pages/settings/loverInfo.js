@@ -4,12 +4,16 @@ import { host } from '../../common/const.js';
 Page({
   data: {
     loverInfo: {},
+    my_userInfo: {},
+    userInfo: {},
     host
   },
   onLoad: function (options) {
     if(app.globalData.loverInfo) {
       this.setData({
-        loverInfo: app.globalData.loverInfo
+        loverInfo: app.globalData.loverInfo,
+        my_userInfo: app.globalData.my_userInfo,
+        userInfo: app.globalData.userInfo
       })
     }
   },
@@ -46,6 +50,7 @@ Page({
         // 若解绑成功，重置全局数据
         if (res.data.data.code === 0) {
           app.globalData.loverInfo = {};
+          app.globalData.relationInfo = {};
         }
       },
       fail: (res) => {

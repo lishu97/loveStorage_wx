@@ -16,6 +16,19 @@ Page({
       my_userInfo: app.globalData.my_userInfo
     })
     this.sendPlanListRequest(this, this.data.relationInfo.relationId);
+    if (this.data.my_userInfo) {
+      return;
+    }
+    wx.showModal({
+      title: '请先注册/绑定帐号',
+      content: '否则将无法正常使用系统功能',
+      showCancel: false,
+      success: () => {
+        wx.redirectTo({
+          url: '../select',
+        });
+      }
+    })
   },
   sendPlanListRequest: function (that, relationId) {
     wx.request({
@@ -24,9 +37,15 @@ Page({
         if (res.data.msg === '没有记录') {
           return
         }
+        const planListFormated = [];
+        res.data.data.planList.forEach(item => {
+          item.planTime = item.planTime.split(' ')[0]
+          planListFormated.push(item);
+        })
+
         that.setData({
           hasPlan: true,
-          planList: res.data.data.planList
+          planList: planListFormated
         });
       }
     })
@@ -69,6 +88,17 @@ Page({
               })
             }
           })
+        }
+      }
+    })
+  },
+  deleteConfirm: function (e) {
+    wx.showModal({
+      title: '警告',
+      content: '删除后无法恢复，是否继续',
+      success: (res) => {
+        if (res.confirm) {
+          this.deletePlan(e);
         }
       }
     })

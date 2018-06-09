@@ -1,1 +1,4 @@
 /* pages/settings/about.wxss */
+text {
+  line-height: 10vw;
+}

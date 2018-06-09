@@ -1,14 +1,13 @@
 <!--pages/settings/loverInfo.wxml-->
 <view>
-  <view>情侣信息</view>
   <view>
-    <view class='avatar'>
-      <image src='{{"http://"+host+loverInfo.avatar}}'></image>
+    <view class='avatar item'>
+      头像：<image src='{{"http://"+host+loverInfo.avatar}}'></image>
     </view>
-    <view>
+    <view class='item'>
       <text>昵称：{{loverInfo.nickname}}</text>
     </view>
-    <view>
+    <view class='item'>
       <text>注册时间：{{loverInfo.regTime}}</text>  
     </view>
   </view>

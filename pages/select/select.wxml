@@ -1,12 +1,12 @@
 <!--page/select/select.wxml-->
 <navigator url="./plan/plan" hover-class="navigator-hover">
-  <view>
+  <view class='item'>
        <text class='iconfont icon-jihua'></text>  
     <text>计划书</text>
   </view>
 </navigator>
 <navigator url="./anniversary/anniversary" hover-class="navigator-hover">
-  <view>
+  <view class='item'>
        <text class='iconfont icon-rili'></text>  
     <text>纪念日</text>
   </view>

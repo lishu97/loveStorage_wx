@@ -3,7 +3,7 @@
     <view class='pic-area' style='background: url(../../image/settings/bg.png)'>
       <view class='userInfo'>
         <navigator url="./userInfo">
-          <image src='../../image/settings/header.png'></image>
+          <image src='{{userInfo.avatarUrl ? userInfo.avatarUrl : "http://"+host+my_userInfo.avatar}}'></image>
         </navigator>
         <text>{{my_userInfo.nickname ? my_userInfo.nickname : '未知用户'}}</text>
       </view>
@@ -33,6 +33,7 @@
           <text>关于小程序</text>
           </button>
       </navigator>
+      <!-- <button open-type='getUserInfo'>获取授权</button> -->
     </view>
   </view>
 </view>

@@ -7,7 +7,8 @@ Page({
     my_userInfo: {},
     statusList: [],
     hasStatus: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    host
   },
 
   /**
@@ -77,6 +78,17 @@ Page({
   addStatus: function() {
     wx.navigateTo({
       url: './addstatus',
+    })
+  },
+  deleteConfirm: function(e) {
+    wx.showModal({
+      title: '警告',
+      content: '删除后无法恢复，是否继续',
+      success: (res) => {
+        if(res.confirm) {
+          this.deleteStatus(e);
+        }
+      }
     })
   },
   deleteStatus: function(e) {

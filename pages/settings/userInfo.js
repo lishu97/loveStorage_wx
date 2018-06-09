@@ -4,13 +4,13 @@ import { host } from '../../common/const.js';
 Page({
   data: {
     my_userInfo: {},
+    userInfo: {},
     host
   },
-  onLoad: function (options) {
-    if (app.globalData.my_userInfo) {
-      this.setData({
-        my_userInfo: app.globalData.my_userInfo
-      })
-    }
+  onShow: function (options) {
+    this.setData({
+      my_userInfo: app.globalData.my_userInfo,
+      userInfo: app.globalData.userInfo
+    })
   }
 })

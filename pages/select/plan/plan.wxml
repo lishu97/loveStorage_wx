@@ -1,5 +1,5 @@
 <!--pages/select/plan/plan.wxml-->
-<view wx:if="{{!hasPlan}}">没有记录</view>
+<view wx:if="{{!hasPlan}}" class='empty'>No data</view>
 <block wx:for="{{planList}}">
   <view class="{{'itemContainer ' + item.planId}}" id="{{index}}">
     <view class='itemHeader'>
@@ -14,13 +14,13 @@
               <checkbox value='{{item.planId}}' checked='{{!item.planStatus ? false : true}}'></checkbox>{{item.planTime}}
             </label>
           </checkbox-group>
-          <view bindtap='deletePlan' id="{{item.planId}}">
+          <view bindtap='deleteConfirm' id="{{item.planId}}">
             <text class='iconfont icon-shanchu'></text>
           </view>
         </view>
       </view>
     </view>
-    <view class='planContent'>{{item.planContent}}</view>
+    <view class='content'>{{item.planContent}}</view>
   </view>
 </block>
 <view class='addPlan' bindtap="addPlan"><text class='iconfont icon-tianjia'></text></view>
