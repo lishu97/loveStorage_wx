@@ -81,7 +81,6 @@ Page({
   },
   deleteStatus: function(e) {
     const statusId = e.currentTarget.id;
-    console.log(1)
     wx.request({
       url: `http://${host}/api/delete_status`,
       data: {

@@ -1,4 +1,5 @@
 //app.js
+import { host } from './common/const.js'
 App({
   onLaunch: function () {
     // 登录
@@ -9,7 +10,7 @@ App({
         if (code) {
           // 获取my_userInfo
           wx.request({
-            url: 'http://127.0.0.1:3000/api/wx/onlogin',
+            url: 'http://' + host + '/api/wx/onlogin',
             data: { code },
             success: res => {
               this.globalData.openId = res.data.data.openId;
@@ -23,8 +24,10 @@ App({
                 // 已经绑定帐号
                 this.globalData.hasBinded = true;
                 this.globalData.my_userInfo = res.data.data.userInfo;
+                this.globalData.relationInfo = res.data.data.relationInfo;
                 // 可能出现请求自己的服务器结果未返回时，就已经发起lover接口访问的请求（会报错）
                 // 所以此处加入 callback 以防止这种情况
+                // TODO: 改变函数名称含义为初始化数据成功
                 if (this.my_userInfoIsReadyCallback) {
                   this.my_userInfoIsReadyCallback(res);
                 }
@@ -67,6 +70,7 @@ App({
     my_userInfo: null,
     hasBinded: false,
     openId: null,
-    loverInfo: null
+    loverInfo: null,
+    relationInfo: null
   }
 })

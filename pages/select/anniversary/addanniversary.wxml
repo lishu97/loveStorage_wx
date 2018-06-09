@@ -1,0 +1,12 @@
+<!--pages/select/anniversary/addanniversary.wxml-->
+<form bindsubmit="formSubmit">
+  <textarea placeholder='有意义的一天...' maxlength='200' bindinput="anniversaryContent" auto-focus='true' ></textarea>
+  <view class="section">
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+              纪念日期: {{anniversaryTime ? anniversaryTime : '点击这里选择日期'}}
+          </view>
+      </picker>
+  </view>
+  <button  form-type="submit">保存</button>
+</form>

@@ -1,11 +1,11 @@
 <!--page/select/select.wxml-->
-<navigator url="../bind" hover-class="navigator-hover">
+<navigator url="./plan/plan" hover-class="navigator-hover">
   <view>
        <text class='iconfont icon-jihua'></text>  
     <text>计划书</text>
   </view>
 </navigator>
-<navigator url="../bind" hover-class="navigator-hover">
+<navigator url="./anniversary/anniversary" hover-class="navigator-hover">
   <view>
        <text class='iconfont icon-rili'></text>  
     <text>纪念日</text>

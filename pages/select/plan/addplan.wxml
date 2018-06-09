@@ -1,0 +1,12 @@
+<!--pages/select/plan/addplan.wxml-->
+<form bindsubmit="formSubmit">
+  <textarea placeholder='准备做点什么...' maxlength='200' bindinput="planContent" auto-focus='true' ></textarea>
+  <view class="section">
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+              计划日期: {{planTime ? planTime : '点击这里选择日期'}}
+          </view>
+      </picker>
+  </view>
+  <button  form-type="submit">保存</button>
+</form>

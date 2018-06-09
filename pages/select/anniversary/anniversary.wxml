@@ -1,0 +1,23 @@
+<!--pages/select/anniversary/anniversary.wxml-->
+<view wx:if="{{!hasAnniversary}}">没有记录</view>
+<block wx:for="{{anniversaryList}}">
+  <view class="{{'itemContainer ' + item.anniversaryId}}" id="{{index}}">
+    <view class='itemHeader'>
+      <!-- <view class='avatar'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view> -->
+      <view class='userInfo'>
+        <!-- <view class='nickname'>{{my_userInfo.nickname}}</view> -->
+        <view class='time'>
+          
+          <view bindtap='deleteAnniversary' id="{{item.anniversaryId}}">
+            {{item.anniversaryTime}}
+            <text class='iconfont icon-shanchu'></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='anniversaryContent'>{{item.anniversaryContent}}</view>
+  </view>
+</block>
+<view class='add' bindtap="addAnniversary"><text class='iconfont icon-tianjia'></text></view>

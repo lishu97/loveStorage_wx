@@ -1,12 +1,12 @@
 <view class="container">
   <view class="page-body">
     <view class='pic-area' style='background: url(../../image/settings/bg.png)'>
-      <navigator url="./userInfo">
-        <view class='userInfo'>
+      <view class='userInfo'>
+        <navigator url="./userInfo">
           <image src='../../image/settings/header.png'></image>
-          <text>{{my_userInfo.nickname}}</text>
-        </view>
-      </navigator>
+        </navigator>
+        <text>{{my_userInfo.nickname ? my_userInfo.nickname : '未知用户'}}</text>
+      </view>
     </view>
     <view class="btn-area">
       <navigator wx:if="{{!hasBinded}}" url="../bind" hover-class="navigator-hover">

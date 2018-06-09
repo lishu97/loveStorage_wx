@@ -1,0 +1,26 @@
+<!--pages/select/plan/plan.wxml-->
+<view wx:if="{{!hasPlan}}">没有记录</view>
+<block wx:for="{{planList}}">
+  <view class="{{'itemContainer ' + item.planId}}" id="{{index}}">
+    <view class='itemHeader'>
+      <!-- <view class='avatar'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view> -->
+      <view class='userInfo'>
+        <!-- <view class='nickname'>{{my_userInfo.nickname}}</view> -->
+        <view class='planTime'>
+          <checkbox-group bindchange='changePlanStatus' id='{{item.planId}}'>
+            <label>
+              <checkbox value='{{item.planId}}' checked='{{!item.planStatus ? false : true}}'></checkbox>{{item.planTime}}
+            </label>
+          </checkbox-group>
+          <view bindtap='deletePlan' id="{{item.planId}}">
+            <text class='iconfont icon-shanchu'></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='planContent'>{{item.planContent}}</view>
+  </view>
+</block>
+<view class='addPlan' bindtap="addPlan"><text class='iconfont icon-tianjia'></text></view>
