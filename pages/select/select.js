@@ -5,7 +5,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.relationInfo) {
+    if (app.globalData.relationInfo && app.globalData.relationInfo.relationId) {
       return;
     }
     wx.showModal({
