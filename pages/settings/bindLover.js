@@ -46,7 +46,7 @@ Page({
         // 若绑定成功，向服务器请求到情侣信息
         if(res.data.data.code === 0) {
           app.globalData.relationInfo = res.data.data.relationInfo;
-          const url = 'http://127.0.0.1:3000/api/lover_info?userId=' + this.data.my_userInfo.userId;
+          const url = 'http://' + host + '/api/lover_info?userId=' + this.data.my_userInfo.userId;
           wx.request({
             url: url,
             success: res => {
